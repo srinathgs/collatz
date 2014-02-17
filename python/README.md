@@ -1,3 +1,5 @@
+This code is written in `python 2.7`
+
 Server Code: `(file server/server.py)`
 ------------------------------------
 
