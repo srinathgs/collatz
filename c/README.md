@@ -52,30 +52,29 @@ Clearly, there are overlapping sub-problems when Collatz's conjuncture is calcul
 
 3) Memoized Version:
 
-  int cycles(int n){
-    int ans = 0;
-    /*Check if the result has been already computed*/
-    if((n > 1) && (n <= MAX_SIZE) && (memo[n] != 0)){
-        return memo[n];
-    } else if (n > 1){
-        /*If n is a power of 2, the number of cycles will be equal to the x 
-        where x = log(n) note that the base of log is 2*/
-        if(is_pow2(n)){
-            ans = calc_pow2(n);
-        } else {
-            ans = 1 + ((n % 2) == 0 ? cycles(n >> 1) : cycles( 3 * n + 1));
+      int cycles(int n){
+        int ans = 0;
+        /*Check if the result has been already computed*/
+        if((n > 1) && (n <= MAX_SIZE) && (memo[n] != 0)){
+            return memo[n];
+        } else if (n > 1){
+            /*If n is a power of 2, the number of cycles will be equal to the x 
+            where x = log(n) note that the base of log is 2*/
+            if(is_pow2(n)){
+                ans = calc_pow2(n);
+            } else {
+                ans = 1 + ((n % 2) == 0 ? cycles(n >> 1) : cycles( 3 * n + 1));
+            }
+            /*Save in the array if n is less than 1000000*/
+            if(n <= MAX_SIZE){
+                memo[n] = ans;
+            }
+            return ans;
         }
-        /*Save in the array if n is less than 1000000*/
-        if(n <= MAX_SIZE){
-            memo[n] = ans;
-        }
-        return ans;
-    }
-    else{
-        return 1;
-    }
-    
-  }
+        else{
+            return 1;
+        }    
+      }
 This version saves the intermediate results in the memoization table and looks up before computing for n. Also, this version computes the value of cycle only for required numbers.
 
 
