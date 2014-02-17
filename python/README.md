@@ -23,11 +23,11 @@ I have tested this code on my laptop running linux with i5 processor and 4 GB RA
 
 The variation in execution time between the two versions of computing max number of cycles is astounding.
 
-1) When running server with `max_cycles` function for 300 concurrent clients(file: client/output/300_clients.gz):
+1) When running server with `max_cycles` function for 300 concurrent clients `(file: client/output/300_clients.gz)`:
 
     15070 queries processed in 664.758065939s time (i.e., 0.04411135142262773s per query)
 
-2) When running server with `max_cycles_r` function for 300 concurrent clients(file: client/output/300_clients_RMQ.gz):
+2) When running server with `max_cycles_r` function for 300 concurrent clients `(file: client/output/300_clients_RMQ.gz)`:
 
     15054 queries processed in 5.71699690819s time (i.e., 0.00037976596972166864s per query)
 
